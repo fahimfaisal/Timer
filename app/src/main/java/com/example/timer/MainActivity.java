@@ -176,18 +176,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void Start()
     {
-        if (!TimerStarted || isPaused)
+        if (exerciseName.getText().toString().matches(""))
         {
-            TimerStarted = true;
-            isPaused = false;
-
-            Startimer();
-
+            Toast.makeText(getApplicationContext(),"Enter an Exercise Name",Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(getApplicationContext(),"Timer Already Started",Toast.LENGTH_SHORT).show();
+            if (!TimerStarted || isPaused)
+            {
+                TimerStarted = true;
+                isPaused = false;
+
+                Startimer();
+
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),"Timer Already Started",Toast.LENGTH_SHORT).show();
+            }
+
         }
+
 
     }
 
